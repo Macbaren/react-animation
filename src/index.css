@@ -33,7 +33,19 @@ code {
   justify-content: center;
   width: 200px;
   height: 200px;
+}
+
+.square.entering {
   animation: square 1000ms ease-out forwards;
+}
+
+.square.exiting {
+  animation: square 500ms ease-out alternate-reverse;
+}
+
+.square.exited {
+  opacity: 0;
+  transform: translateY(-30px);
 }
 
 .square.blue {
@@ -47,12 +59,12 @@ code {
 @keyframes square {
   0% {
     opasity: 0;
-    transform: translateY(-60px);
+    transform: translateY(-30px);
   }
 
   50% {
     opacity: 1;
-    transform: translateY(30px);
+    transform: translateY(10px);
   }
 
   100% {
