@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { CSSTransition, Transition } from 'react-transition-group'
+import Character from './Character'
 import { List } from './List'
 
 function App() {
@@ -56,6 +57,9 @@ function App() {
       <div className="blocks">
         <List items={items} onRemove={removeItem} />
       </div>
+      {items.map((item) => (
+        <Character key={item.id} item={item} onRemove={removeItem} />
+      ))}
     </div>
   )
 }
