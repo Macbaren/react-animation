@@ -3,7 +3,7 @@ import { CSSTransition, Transition } from 'react-transition-group'
 import Character from './Character'
 import { List } from './List'
 
-function App() {
+const App = ({ list }) => {
   const [toggle, setToggle] = useState(true)
   const [toggle2, setToggle2] = useState(true)
   const [items, setItems] = useState([
@@ -60,8 +60,22 @@ function App() {
       {items.map((item) => (
         <Character key={item.id} item={item} onRemove={removeItem} />
       ))}
+      <ul>
+        {list.map((it, ind) => (
+          <li key={it.ind + it.name}>
+            <strong>{it.name}: </strong>side - {it.side}
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
 
-export default App
+const withFilteredProps = (Component) => ({ list, side }) => {
+  const filteredList = list.filter((ch) => ch.side === side)
+  return <Component list={filteredList} />
+}
+
+const FilteredList = withFilteredProps(App)
+
+export default FilteredList

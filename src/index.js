@@ -4,7 +4,18 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const characters = [
+  { name: 'Luk', side: 'light' },
+  { name: 'Obivan', side: 'light' },
+  { name: 'Yoda', side: 'light' },
+  { name: 'Palpatin', side: 'dark' },
+  { name: 'Darth', side: 'dark' },
+]
+
+ReactDOM.render(
+  <App list={characters} side="light" />,
+  document.getElementById('root')
+)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
